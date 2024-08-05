@@ -1,0 +1,425 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Ativos API",
+        "description": "Operations about assets",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/ativos": {
+            "get": {
+                "tags": [
+                    "assets"
+                ],
+                "summary": "Get all assets",
+                "operationId": "bb86a6612b2b444418c9d606f37de61e",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "204": {
+                        "description": "No assets found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "assets"
+                ],
+                "summary": "Create asset",
+                "operationId": "9ec9513839e409994614e1cb1d0042f6",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nome",
+                                    "concentracao_maxima",
+                                    "descricao"
+                                ],
+                                "properties": {
+                                    "nome": {
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "descricao": {
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "concentracao_maxima": {
+                                        "type": "number",
+                                        "example": "100"
+                                    },
+                                    "observacoes": {
+                                        "type": "string",
+                                        "example": ""
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/ativos/{id}": {
+            "get": {
+                "tags": [
+                    "assets"
+                ],
+                "summary": "Get asset by id",
+                "operationId": "65a4a20121a7278408897d8d56a9bc19",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Asset id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "404": {
+                        "description": "Asset not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "assets"
+                ],
+                "summary": "Delete asset by id",
+                "operationId": "e52ee368c4073c0234622b1d4104bf3d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Asset id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "404": {
+                        "description": "Asset not found"
+                    }
+                }
+            }
+        },
+        "/clientes": {
+            "get": {
+                "tags": [
+                    "clients"
+                ],
+                "summary": "Get all clients",
+                "operationId": "315f7eb165e72246ae09ab97fa93bcdb",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "204": {
+                        "description": "No clients found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "clients"
+                ],
+                "summary": "Create a new client",
+                "operationId": "19a48228b39b0456fd77c75472c5c2ef",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nome",
+                                    "email",
+                                    "telefone",
+                                    "CPF"
+                                ],
+                                "properties": {
+                                    "nome": {
+                                        "type": "string",
+                                        "example": "João da Silva"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "joao@teste.com.br"
+                                    },
+                                    "telefone": {
+                                        "type": "string",
+                                        "example": "11999999999"
+                                    },
+                                    "CPF": {
+                                        "type": "string",
+                                        "example": "12345678910"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Client already exists"
+                    },
+                    "401": {
+                        "description": "Validation error"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/clientes/{id}": {
+            "get": {
+                "tags": [
+                    "clients"
+                ],
+                "summary": "Get client by id",
+                "operationId": "bd184ac701e91e5656b574235e835a51",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Client not found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "clients"
+                ],
+                "summary": "Update client by id",
+                "operationId": "3bb64686c9be029d410b08faa1fd9222",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Client not found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "clients"
+                ],
+                "summary": "Delete client by id",
+                "operationId": "bba181e729e7cc59b6fb2a84ce450613",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Client not found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/formulas": {
+            "get": {
+                "tags": [
+                    "formulas"
+                ],
+                "summary": "Get all formulas",
+                "operationId": "39932cc566499aebd81ffd8c39e8cd0b",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "404": {
+                        "description": "No formulas found"
+                    }
+                }
+            }
+        },
+        "/formulas/{id}": {
+            "get": {
+                "tags": [
+                    "formulas"
+                ],
+                "summary": "Get formula by id",
+                "operationId": "d1458baa6456715ceaaea6a012ef7bb2",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of formula",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "404": {
+                        "description": "Formula not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "formulas"
+                ],
+                "summary": "Update formula by id",
+                "operationId": "ac4d078f2a00b79ea7215a0288d9eca7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of formula",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "404": {
+                        "description": "Formula not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "formulas"
+                ],
+                "summary": "Delete formula by id",
+                "operationId": "145b4d7466eb4ece17c40ee8849f8adb",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of formula",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "404": {
+                        "description": "Formula not found"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "clients",
+            "description": "Operations about clients"
+        },
+        {
+            "name": "formulas",
+            "description": "Operations about formulas"
+        },
+        {
+            "name": "assets",
+            "description": "assets"
+        }
+    ]
+}
