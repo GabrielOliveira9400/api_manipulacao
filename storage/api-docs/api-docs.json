@@ -12,7 +12,7 @@
                     "assets"
                 ],
                 "summary": "Get all assets",
-                "operationId": "bb86a6612b2b444418c9d606f37de61e",
+                "operationId": "c850c74beab8ecf7f16b0da7c4d298df",
                 "responses": {
                     "200": {
                         "description": "Success"
@@ -30,7 +30,7 @@
                     "assets"
                 ],
                 "summary": "Create asset",
-                "operationId": "9ec9513839e409994614e1cb1d0042f6",
+                "operationId": "80c586084ef845bfc3e381ff10140530",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -83,7 +83,7 @@
                     "assets"
                 ],
                 "summary": "Get asset by id",
-                "operationId": "65a4a20121a7278408897d8d56a9bc19",
+                "operationId": "5df6463e25e728d857b23dbb37f2c0e9",
                 "parameters": [
                     {
                         "name": "id",
@@ -112,7 +112,7 @@
                     "assets"
                 ],
                 "summary": "Delete asset by id",
-                "operationId": "e52ee368c4073c0234622b1d4104bf3d",
+                "operationId": "398ab69877ce6d0d1e755e6b3990128a",
                 "parameters": [
                     {
                         "name": "id",
